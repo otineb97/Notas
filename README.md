@@ -42,7 +42,3 @@ Puedes personalizar el aspecto y funcionalidad de la aplicación modificando los
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [MIT License](LICENSE) para obtener más detalles.
-
-## Licencia
-
-Este proyecto tiene la licencia [MIT License](LICENSE).
