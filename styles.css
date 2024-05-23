@@ -1,99 +1,105 @@
-/* Navbar */
-
+/* General Styles */
 .no-border:focus {
     outline: none;
     box-shadow: none;
 }
 
-/* Card */
-
+/* Card Styles */
 .custom-card {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .custom-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-
 .card-actions {
     display: flex;
     gap: 15px;
 }
-
 .card-actions i {
     cursor: pointer;
     transition: transform 0.2s, color 0.2s;
 }
-
 .card-actions i:hover {
     transform: scale(1.2);
 }
+.completed-note .card-title,
+.completed-note .card-text {
+    text-decoration: line-through;
+    color: grey;
+}
+.completed-note {
+    background-color: #e0e0e0;
+}
 
-/* note-container and note-input */
-
+/* Note Container and Input Styles */
 .note-input {
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     background-color: #fff;
     border: 2px solid transparent;
 }
-
 #note-container {
     border: 2px solid #ced4da;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .note-input:focus-within {
     background-color: transparent;
     border-color: #007bff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .note-input input,
 .note-input textarea {
     border: none;
     background-color: transparent;
 }
-
 .note-input input:focus,
 .note-input textarea:focus {
     border: none;
     background-color: transparent;
-}
-
-.note-input input:focus,
-.note-input textarea:focus {
     outline: none;
     box-shadow: none;
 }
-
 .note-title::placeholder,
 #note-description::placeholder {
     font-weight: bold;
 }
-
 .note-title {
     display: none;
 }
-
 .expanded .note-title {
     display: block;
 }
-
 .expanded textarea {
     height: auto;
     resize: none;
 }
-
 .note-actions {
     display: none;
     justify-content: flex-end;
     gap: 0.5rem;
 }
-
 .expanded .note-actions {
     display: flex;
+}
+
+/* Color Picker Styles */
+#color-picker {
+    z-index: 1000;
+}
+
+.color-option {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.color-option:hover {
+    border: 2px solid #000;
 }
