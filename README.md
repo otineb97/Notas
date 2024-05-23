@@ -2,24 +2,27 @@
 
 ## Descripción
 
-Notas App es una aplicación web simple para crear, buscar y gestionar notas. Utiliza HTML, CSS, y JavaScript, junto con Bootstrap para el diseño y Font Awesome para los iconos.
+Este proyecto es una aplicación web simple para gestionar notas. Permite crear, editar, borrar y buscar notas. Además, las notas pueden tener diferentes colores y se pueden marcar como completadas. La aplicación utiliza Local Storage para guardar las notas, por lo que los datos persisten incluso si se recarga la página.
 
 [Haz clic aquí y pruébalo por ti mismo.](https://otineb97.github.io/Notas/)
 
 ## Características
 
-- **Crear Notas**: Añade notas con título y descripción.
-- **Buscar Notas**: Usa la barra de búsqueda para encontrar notas rápidamente.
-- **Interacción con Notas**: Marca como completada, edita o borra notas existentes.
-- **Diseño Responsivo**: Adaptado para dispositivos móviles y de escritorio.
+- **Crear Notas**: Permite crear notas con título y descripción.
+- **Editar Notas**: Permite editar notas existentes.
+- **Borrar Notas**: Permite borrar notas.
+- **Buscar Notas**: Permite buscar notas en tiempo real mientras se escribe en el campo de búsqueda.
+- **Cambiar Color de Notas**: Permite cambiar el color de fondo de las notas.
+- **Marcar como Completada**: Permite marcar notas como completadas.
+- **Persistencia**: Las notas se guardan en el Local Storage del navegador.
 
 ## Tecnologías Utilizadas
 
-- HTML5
-- CSS3
-- JavaScript
-- [Bootstrap 5](https://getbootstrap.com/)
-- [Font Awesome](https://fontawesome.com/)
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- **Bootstrap 5**
+- **FontAwesome**
 
 ## Estructura del Proyecto
 
