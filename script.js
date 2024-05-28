@@ -15,22 +15,29 @@ function displayNotes(filteredNotes = notes) {
     filteredNotes.forEach((note, index) => {
         const noteCard = document.createElement('div');
         noteCard.classList.add('col');
+        const cardBorderClass = note.color === '#212429' ? 'border' : 'border-0';
         noteCard.innerHTML = `
-            <div class="card custom-card border-0 ${note.completed ? 'completed-note' : ''}" style="background-color: ${note.color || '#fff'};">
+            <div class="card custom-card ${cardBorderClass} ${note.completed ? 'completed-note' : ''}" style="background-color: ${note.color || '#212429'};">
                 <div class="card-body">
                     <h5 class="card-title">${note.title}</h5>
-                    <p class="card-text text-dark">${note.description}</p>
-                    <p class="card-text text-muted">${note.date}</p>
+                    <p class="card-text">${note.description}</p>
+                    <p class="card-text">${note.date}</p>
                     <div class="card-actions d-flex justify-content-end">
-                        <i class="fas fa-check-circle text-dark" title="Aprobar" onclick="toggleComplete(${index})"></i>
-                        <i class="fas fa-edit text-dark" title="Editar" onclick="editNote(${index})"></i>
-                        <i class="fas fa-palette text-dark" title="Cambiar Color" onclick="showColorPicker(${index}, event)"></i>
-                        <i class="fas fa-trash-alt text-dark" title="Borrar" onclick="deleteNote(${index})"></i>
+                        <i class="fas fa-check-circle" title="Aprobar" onclick="toggleComplete(${index})"></i>
+                        <i class="fas fa-edit" title="Editar" onclick="editNote(${index})"></i>
+                        <i class="fas fa-palette" title="Cambiar Color" onclick="showColorPicker(${index}, event)"></i>
+                        <i class="fas fa-trash-alt" title="Borrar" onclick="deleteNote(${index})"></i>
                     </div>
                 </div>
             </div>
         `;
         notesList.appendChild(noteCard);
+    });
+
+    new Masonry(notesList, {
+        itemSelector: '.col',
+        columnWidth: '.col',
+        percentPosition: true
     });
 }
 
@@ -47,7 +54,7 @@ function saveNote() {
     const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false };
     const date = `${now.toLocaleDateString('es-ES', dateOptions)}, ${now.toLocaleTimeString('es-ES', timeOptions)}`;
 
-    const note = { title, description, date, completed: false, color: '#fff' };
+    const note = { title, description, date, completed: false, color: '#212429' };
     if (editingNoteIndex !== null) {
         notes[editingNoteIndex] = note;
         editingNoteIndex = null;
@@ -55,9 +62,7 @@ function saveNote() {
         notes.push(note);
     }
     localStorage.setItem('notes', JSON.stringify(notes));
-    noteTitle.value = '';
-    noteDescription.value = '';
-    noteContainer.classList.remove("expanded");
+    clearNoteInput();
     displayNotes();
 }
 
@@ -90,8 +95,7 @@ function toggleComplete(index) {
 }
 
 function cancelNote() {
-    noteTitle.value = '';
-    noteDescription.value = '';
+    clearNoteInput();
     editingNoteIndex = null;
     noteContainer.classList.remove("expanded");
 }
@@ -118,6 +122,11 @@ function hideColorPicker() {
     colorPicker.classList.add("d-none");
 }
 
+function clearNoteInput() {
+    noteTitle.value = '';
+    noteDescription.value = '';
+}
+
 document.addEventListener("click", (event) => {
     const colorPicker = document.getElementById("color-picker");
 
@@ -127,8 +136,7 @@ document.addEventListener("click", (event) => {
 
     if (!noteContainer.contains(event.target) && !event.target.classList.contains('fa-edit')) {
         noteContainer.classList.remove("expanded");
-        noteTitle.value = '';
-        noteDescription.value = '';
+        clearNoteInput();
         editingNoteIndex = null;
     }
 });
@@ -142,7 +150,12 @@ noteContainer.addEventListener("click", (event) => {
 });
 
 saveNoteButton.addEventListener("click", saveNote);
-cancelNoteButton.addEventListener("click", cancelNote);
+
+cancelNoteButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    cancelNote();
+});
+
 searchInput.addEventListener("input", searchNotes);
 
 displayNotes();
