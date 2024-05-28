@@ -8,16 +8,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <nav class="navbar navbar-light mt-2">
+<body class="bg-dark text-white">
+    <nav class="navbar navbar-dark mt-2">
         <div class="container">
-            <a class="navbar-brand fst-italic fw-bold" href="#">Notas</a>
-            <form class="d-flex rounded" role="search" id="search-form" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <a class="navbar-brand fw-semibold" href="#" style="color: #b2b7b9;">Notas</a>
+            <form class="d-flex rounded" role="search" id="search-form">
                 <div class="input-group">
-                    <button class="btn border-0 bg-light" type="submit" style="border: 2px solid #ced4da;">
-                        <i class="fas fa-search text-dark"></i>
+                    <button class="btn border-0" type="submit" style="background-color: #525355;">
+                        <i class="fas fa-search" style="color: #b2b7b9;"></i>
                     </button>
-                    <input class="form-control border-0 bg-light" type="search" id="search-input" placeholder="Buscar sin límites..." aria-label="Search">
+                    <input class="form-control border-0" type="search" id="search-input" placeholder="Buscar sin límites..." aria-label="Search" style="background-color: #525355;">
                 </div>
             </form>
         </div>
@@ -25,10 +25,10 @@
 
     <div class="container my-4">
         <div class="row justify-content-center mb-4">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div id="note-container" class="note-input p-3 border rounded">
-                    <input type="text" id="note-title" class="form-control mb-2 note-title" placeholder="Titulo">
-                    <textarea id="note-description" class="form-control" placeholder="Añade una nota..." rows="1"></textarea>
+                    <input type="text" id="note-title" class="form-control mb-2 note-title bg-dark text-white" placeholder="Titulo">
+                    <textarea id="note-description" class="form-control bg-dark text-white" placeholder="Añade una nota..." rows="1"></textarea>
                     <div class="note-actions mt-2">
                         <button id="save-note" class="btn btn-outline-secondary fw-medium btn-sm border-0">Guardar</button>
                         <button id="cancel-note" class="btn btn-outline-secondary fw-medium btn-sm border-0">Cancelar</button>
@@ -37,22 +37,26 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-4 g-4" id="notes-list">
+        <div class="row row-cols-1 row-cols-md-4 g-3" id="notes-list">
             <!-- Notes will be added here dynamically -->
         </div>
     </div>
 
     <!-- Color Picker Container -->
-    <div id="color-picker" class="d-none position-absolute bg-secondary p-2 border rounded">
+    <div id="color-picker" class="d-none position-absolute bg-dark p-2 border rounded">
         <div class="d-flex">
-            <div class="color-option" title="Predeterminado" style="background-color: #FFFFFF;" onclick="changeNoteColor('#FFFFFF')"></div>
-            <div class="color-option" title="Menta" style="background-color: #96cfbe;" onclick="changeNoteColor('#96cfbe')"></div>
-            <div class="color-option" title="Gris niebla" style="background-color: #a6a6a6;" onclick="changeNoteColor('#a6a6a6')"></div>
-            <div class="color-option" title="Verde salvia" style="background-color: #C6B28A;" onclick="changeNoteColor('#C6B28A')"></div>
-            <div class="color-option" title="Arena" style="background-color: #FF9800;" onclick="changeNoteColor('#FF9800')"></div>
+            <div class="color-option" title="Predeterminado" style="background-color: #fff;" onclick="changeNoteColor('#212429')"></div>
+            <div class="color-option" title="Menta" style="background-color: #264d3b;" onclick="changeNoteColor('#264d3b')"></div>
+            <div class="color-option" title="Verde salvia" style="background-color: #0c635d;" onclick="changeNoteColor('#0c635d')"></div>
+            <div class="color-option" title="Gris niebla" style="background-color: #256476;" onclick="changeNoteColor('#256476')"></div>
+            <div class="color-option" title="Azul oscuro" style="background-color: #274255;" onclick="changeNoteColor('#274255')"></div>
+            <div class="color-option" title="Azul purpúreo" style="background-color: #482e5b;" onclick="changeNoteColor('#482e5b')"></div>
+            <div class="color-option" title="Coral" style="background-color: #76172d;" onclick="changeNoteColor('#76172d')"></div>
+            <div class="color-option" title="Arena" style="background-color: #7c4a03;" onclick="changeNoteColor('#7c4a03')"></div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
