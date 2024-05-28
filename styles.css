@@ -4,11 +4,28 @@
     box-shadow: none;
 }
 
+#search-input::placeholder {
+    color: #b2b7b9;
+}
+
+.bg-dark.text-white::placeholder {
+    color: #b2b7b9;
+}
+
+#search-input.form-control:focus {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
 /* Card Styles */
 .custom-card {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    color: #dcdbdc;
 }
 .custom-card:hover {
     transform: translateY(-5px);
@@ -17,6 +34,11 @@
 .card-actions {
     display: flex;
     gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.custom-card:hover .card-actions {
+    opacity: 1;
 }
 .card-actions i {
     cursor: pointer;
@@ -35,21 +57,6 @@
 }
 
 /* Note Container and Input Styles */
-.note-input {
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    background-color: #fff;
-    border: 2px solid transparent;
-}
-#note-container {
-    border: 2px solid #ced4da;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.note-input:focus-within {
-    background-color: transparent;
-    border-color: #007bff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 .note-input input,
 .note-input textarea {
     border: none;
@@ -83,6 +90,16 @@
 }
 .expanded .note-actions {
     display: flex;
+}
+
+/* Masonry Styles */
+.masonry {
+    display: flex;
+    margin-left: -1rem;
+}
+.masonry .masonry-item {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
 }
 
 /* Color Picker Styles */
